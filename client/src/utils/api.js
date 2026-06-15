@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 //DEPLOY:
-// const api = axios.create({
-//     baseURL: import.meta.env.VITE_API_URL || '/api',
-// });
-
 const api = axios.create({
-    baseURL: 'http://localhost:5000/api' 
-});
+     baseURL: import.meta.env.VITE_API_URL || '/api',
+ });
+
+//const api = axios.create({
+  //  baseURL: 'http://localhost:5001/api' 
+//});
 
 api.interceptors.request.use((config) => {
     const token = localStorage.getItem('token');
@@ -17,4 +17,4 @@ api.interceptors.request.use((config) => {
     return config;
 });
 
-export default api;
+export default api;                                                                                                                               

@@ -58,13 +58,54 @@ Only JSON.
 ====================================================
 CONTEXT ASSUMPTIONS
 ====================================================
+Do not fabricate years of experience.
 
-Assume:
-- Candidate has 2+ years experience
-- Strong in DSA and system design
-- Has worked on backend APIs or scalable systems
-- Has contributed to production-level features
-- Actively seeking Software Engineer roles
+If the prompt suggests a fresher, student, graduate, or entry-level candidate,
+avoid claiming professional industry experience.
+
+When the user provides specific information
+(company, branch, year, domain, skills, projects),
+incorporate those details naturally into the email.
+
+Avoid generic placeholders when user information exists.
+
+Before generating the response:
+
+1. Identify:
+   - Target company
+   - Target role
+   - Candidate seniority
+   - Candidate domain
+
+2. Adapt tone and content accordingly.
+
+3. Mention skills relevant to the inferred domain.
+
+Infer candidate profile from the user's prompt.
+
+If the prompt mentions:
+- fresher, graduate, student → assume entry-level candidate
+- VLSI, electronics, embedded, semiconductor → generate electronics-focused outreach
+- software engineer, backend, frontend, full stack → generate software-focused outreach
+- data science, AI, ML → generate AI/data-focused outreach
+
+Only make assumptions when information is missing.
+
+Never assume:
+- 2+ years experience
+- backend engineering
+- system design
+unless the prompt suggests it.
+
+Avoid repeating the same phrases across requests.
+
+Avoid repeatedly using:
+- scalable systems
+- backend APIs
+- system design
+- production-level features
+
+unless directly relevant to the user's prompt.
 
 If prompt is short like:
 "SDE role"
@@ -72,11 +113,15 @@ If prompt is short like:
 "Startup job"
 "Product company"
 
-Create intelligent assumptions about:
-- Scaling challenges
-- Hiring urgency
-- Performance or system reliability issues
-- Team growth
+Create intelligent assumptions relevant to the target domain.
+
+Examples:
+- Software → scalability, reliability, architecture
+- Electronics/VLSI → design verification, digital design, semiconductor development
+- Embedded → firmware, hardware-software integration
+- AI/ML → model deployment, data pipelines, experimentation
+
+Do not force software-engineering assumptions on non-software roles.
 
 ====================================================
 SUBJECT LINE RULES
@@ -137,7 +182,22 @@ Clear CTA.
 
 Return ONLY valid JSON.`;
     
-    const fullPrompt = `${systemPrompt}\n\nUser REQUEST: "${prompt.trim()}"\n\nGenerate STRONG cold email even if prompt is short. Make smart assumptions. Return ONLY valid JSON:\n{"subject": "...", "emailBody": "...", "linkedInDM": "...", "followUpEmail": "..."}`;
+    const fullPrompt = `${systemPrompt}
+
+User Prompt:
+"${prompt.trim()}"
+
+Analyze the prompt and determine:
+- target company
+- target role
+- candidate experience level
+- technical domain
+
+Then generate personalized outreach.
+
+Return ONLY valid JSON:
+{"subject":"","emailBody":"","linkedInDM":"","followUpEmail":""}
+`;
     const aiResponse = await axios.post(
       'https://api.groq.com/openai/v1/chat/completions',
       {
@@ -148,7 +208,7 @@ Return ONLY valid JSON.`;
             content: fullPrompt
           }
         ],
-        temperature: 0.7,
+        temperature: 0.9,
         max_tokens: 1024
       },
       {

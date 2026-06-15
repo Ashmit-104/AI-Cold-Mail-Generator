@@ -9,7 +9,7 @@
     "start:server": "npm --prefix server run start",
     "start:client": "npm --prefix client run dev"
   },
-  "dependencies": {
-    "concurrently": "^9.2.1"
+  "devDependencies": {
+    "concurrently": "^10.0.3"
   }
 }
