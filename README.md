@@ -12,7 +12,6 @@ The application also maintains a history of generated campaigns, allowing users 
 
 Application: https://ai-cold-mail-generator-d2yp.onrender.com
 
-Backend API: https://mailgen-ai-backend.onrender.com
 
 ---
 
