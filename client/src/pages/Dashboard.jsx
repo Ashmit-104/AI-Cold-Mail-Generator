@@ -63,7 +63,7 @@ const Dashboard = () => {
                         value={prompt}
                         onChange={(e) => setPrompt(e.target.value)}
                         className="flex-1 w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-shadow resize-none"
-                        placeholder="e.g. e.g. Tell us who you're reaching out to and why. We'll generate personalized outreach content tailored to your objective."
+                        placeholder="e.g. Tell us who you're reaching out to and why. We'll generate personalized outreach content tailored to your objective."
                     />
                     <button
                         type="submit"
