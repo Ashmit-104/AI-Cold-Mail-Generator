@@ -94,8 +94,8 @@ const LandingPage = () => {
             <div className="py-24 bg-gray-50/50 border-t border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Everything you need to close more deals</h2>
-                        <p className="mt-4 text-lg text-gray-600 border-b-2 border-transparent inline-block pb-1">Built for sales teams who demand performance.</p>
+                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Everything You Need for Effective Cold Outreach</h2>
+                        <p className="mt-4 text-lg text-gray-600 border-b-2 border-transparent inline-block pb-1">Built for job seekers, professionals, and sales teams.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -117,10 +117,10 @@ const LandingPage = () => {
                 <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
                     <div className="mx-auto max-w-2xl text-center">
                         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                            Ready to scale your outreach?
+                            Let AI Handle the First Draft
                         </h2>
                         <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-                            Join hundreds of sales professionals using MailGen to accelerate their pipeline today.
+                            Create personalized outreach campaigns while focusing on building meaningful connections.
                         </p>
                         <div className="mt-10 flex items-center justify-center gap-x-6">
                             <Link
